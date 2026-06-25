@@ -1,0 +1,172 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.row {
+  position: relative;
+  padding: $space-md 0 $space-lg;
+  background: $color-bg;
+
+  @include desktop {
+    padding: $space-lg 0 $space-xl;
+  }
+
+  // Pierwszy rzad na desktopie ma "wjezdzac" lekko na hero
+  @include desktop {
+    &:first-of-type {
+      margin-top: -10rem;
+      padding-top: 0;
+      background: transparent;
+      z-index: 3;
+    }
+  }
+
+  &__title {
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $color-text;
+    padding: 0 $space-md;
+    margin-bottom: $space-sm;
+
+    @include desktop {
+      font-size: 1.4rem;
+      padding: 0 $space-2xl;
+      margin-bottom: $space-md;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: $space-sm;
+    padding: 0 $space-md;
+
+    @include desktop {
+      gap: $space-md;
+      padding: 0 $space-2xl;
+    }
+  }
+
+  // Wersje widocznosci
+  &--mobile-only {
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.card {
+  flex: 0 0 48%;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  @include desktop {
+    flex: 0 0 calc((100% - #{$space-md} * 5) / 6);
+  }
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &--wide {
+    flex: 0 0 70%;
+
+    @include desktop {
+      flex: 0 0 30%;
+    }
+  }
+
+  &--desktop-only {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    border-radius: $radius-sm;
+    overflow: hidden;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 22px;
+    height: 22px;
+    background: $color-red;
+    color: $color-text;
+    font-weight: 700;
+    font-family: $font-display;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.9rem;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    color: $color-text;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  &__progress {
+    height: 3px;
+    background: $color-progress-bg;
+    border-radius: 0;
+
+    span {
+      display: block;
+      height: 100%;
+      background: $color-progress;
+    }
+  }
+
+  // Stylizowane tla okladek (gradienty + dekoracja, zeby nie pobierac obrazow)
+  &__thumb--samurai {
+    background: radial-gradient(circle at 30% 60%, #ff3b3b 0%, #7a1010 50%, #1a0000 100%);
+  }
+  &__thumb--house {
+    background: linear-gradient(135deg, #c9b87a 0%, #6b5a30 100%);
+  }
+  &__thumb--problem {
+    background: linear-gradient(135deg, #1a2b4a 0%, #0a1020 100%);
+  }
+  &__thumb--bridgerton {
+    background: linear-gradient(135deg, #a07a4f 0%, #4a2c1a 100%);
+  }
+  &__thumb--swiry {
+    background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
+  }
+  &__thumb--arcane {
+    background: linear-gradient(135deg, #8b5cf6 0%, #1e1b4b 100%);
+  }
+  &__thumb--cyberpunk {
+    background: linear-gradient(135deg, #ec4899 0%, #1e1b4b 60%, #facc15 100%);
+  }
+  &__thumb--c1670 {
+    background: linear-gradient(135deg, #3b2a1a 0%, #1a0f06 100%);
+  }
+  &__thumb--brooklyn {
+    background: linear-gradient(135deg, #fde047 0%, #1e3a8a 100%);
+  }
+  &__thumb--bb2 {
+    background: linear-gradient(135deg, #d4a017 0%, #6b4e0f 100%);
+  }
+  &__thumb--sherlock {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+  }
+}

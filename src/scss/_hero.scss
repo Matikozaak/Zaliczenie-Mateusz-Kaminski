@@ -1,0 +1,96 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Sekcja hero - duzy banner z tytulem i przyciskami
+.hero {
+  position: relative;
+  min-height: 70vh;
+  padding-top: $navbar-height-mobile;
+  color: $color-text;
+  overflow: hidden;
+
+  @include desktop {
+    min-height: 60vh;
+    padding-top: $navbar-height-desktop;
+  }
+}
+
+// Tlo - prosty ciemny gradient
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+// Przyciemnienie zeby tekst byl czytelny i ladnie schodzilo do czerni na dole
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%, #000 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1rem;
+
+  @include desktop {
+    padding: 5rem 3rem;
+    max-width: 60%;
+  }
+}
+
+.hero__logo {
+  margin-bottom: 1rem;
+  font-family: $font-display;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  line-height: 1;
+
+  @include desktop {
+    font-size: 4.5rem;
+  }
+}
+
+.hero__title {
+  display: block;
+}
+
+.hero__description {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 360px;
+
+  @include desktop {
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.hero__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__age {
+  position: absolute;
+  right: 1rem;
+  bottom: 25%;
+  z-index: 2;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 3px solid $color-text;
+  font-size: 0.85rem;
+
+  @include desktop {
+    right: 3rem;
+    bottom: 35%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}

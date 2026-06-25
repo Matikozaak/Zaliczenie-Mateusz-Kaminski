@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+body {
+  font-family: $font-body;
+  background-color: $color-bg;
+  color: $color-text;
+}
+
+main {
+  display: block;
+}

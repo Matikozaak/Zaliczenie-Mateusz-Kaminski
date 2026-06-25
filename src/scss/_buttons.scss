@@ -1,0 +1,41 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.btn {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-sm;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+
+  @include desktop {
+    padding: 0.6rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &--play {
+    background: $color-btn-light;
+    color: #000;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  &--info {
+    background: $color-btn-grey;
+    color: $color-text;
+
+    &:hover {
+      background: $color-btn-grey-hover;
+    }
+  }
+}

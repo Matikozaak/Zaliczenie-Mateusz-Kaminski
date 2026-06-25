@@ -1,0 +1,7 @@
+// Glowny plik SCSS - laczy wszystkie partiale
+@use 'reset';
+@use 'base';
+@use 'navbar';
+@use 'hero';
+@use 'buttons';
+@use 'rows';
